@@ -1,38 +1,134 @@
+/* General Styles */
 .App {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212;  /* Full black background */
+  color: #EAEAEA;  /* Light text color */
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  height: 100vh;
+}
+
+h1 {
   text-align: center;
+  color: #00E676;  /* Greenish header */
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chat-box {
+  max-height: 100vh;
+  overflow-y: auto;
+  border: 1px solid #333;  /* Lighter border for chat box */
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #111111;  /* Slightly lighter black for the chat box */
+  margin-bottom: 20px;
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.user-message, .bot-message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 15px;
+  max-width: 50%;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+
+
+
+.user-message {
+  background-color: #858585;  /* Light green for user's messages */
+  color: black;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+.bot-message {
+  background-color: #333;  /* Dark gray background for bot's messages */
+  color: #EAEAEA;  /* Light text for bot's messages */
+  align-self: flex-start;
+  border-bottom-right-radius: 0;
+}
+
+.bot-message {
+  animation: botTyping 1s ease-in-out infinite;
+}
+
+@keyframes botTyping {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #111111;  /* Slightly lighter black for input box */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  width: 80%;
+  padding: 12px 16px;
+  border-radius: 25px;
+  border: 1px solid #555;  /* Darker border for input */
+  font-size: 1rem;
+  outline: none;
+  background-color: #444;  /* Gray input background */
+  color: #EAEAEA;  /* Light text */
+  transition: border 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input:focus {
+  border: 1px solid #00E676;  /* Green border on focus */
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid #00E676;  /* Green border */
+  background-color: #00E676;  /* Green background */
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #00796b;  /* Darker green on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #00E676;  /* Green scrollbar thumb */
+  border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background-color: #333;  /* Lighter dark background for scrollbar track */
 }
