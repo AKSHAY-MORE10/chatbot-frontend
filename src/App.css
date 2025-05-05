@@ -1,66 +1,70 @@
-/* General Styles */
 .App {
   font-family: 'Arial', sans-serif;
   background-color: #121212;  /* Full black background */
   color: #EAEAEA;  /* Light text color */
   max-width: 100vw;
   margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
+  /* padding: 20px; */
+  padding-left :40px;
+  padding-right :40px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   text-align: center;
   color: #00E676;  /* Greenish header */
   font-size: 2rem;
-  margin-bottom: 20px;
+  /* margin-top: 4px; */
 }
 
 .chat-box {
-  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: calc(100vh - 160px);
   overflow-y: auto;
-  border: 1px solid #333;  /* Lighter border for chat box */
-  padding: 15px;
+  border: 1px solid #333;
+  padding: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
   border-radius: 8px;
   background-color: #111111;  /* Slightly lighter black for the chat box */
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.user-message, .bot-message {
+/* Messages */
+.bot-message,
+.user-message {
   margin: 10px 0;
-  padding: 10px;
+  padding: 10px 15px;
   border-radius: 15px;
-  max-width: 50%;
+  max-width: 60%;
   word-wrap: break-word;
   line-height: 1.5;
   font-size: 1rem;
   transition: background-color 0.3s ease-in-out;
+  white-space: pre-wrap;  /* 👈 added to preserve formatting like line breaks */
 }
 
-
-
-
-
-.user-message {
-  background-color: #858585;  /* Light green for user's messages */
-  color: black;
-  align-self: flex-start;
-  border-bottom-left-radius: 0;
-}
-
+/* Bot message on the left */
 .bot-message {
   background-color: #333;  /* Dark gray background for bot's messages */
   color: #EAEAEA;  /* Light text for bot's messages */
-  align-self: flex-start;
+  align-self: flex-start;  /* Align left */
   border-bottom-right-radius: 0;
 }
 
-.bot-message {
-  animation: botTyping 1s ease-in-out infinite;
+/* User message on the right */
+.user-message {
+  background-color: #858585;
+  color: black;
+  align-self: flex-end;  /* Align right */
+  border-bottom-left-radius: 0;
 }
 
 @keyframes botTyping {
@@ -75,11 +79,12 @@ h1 {
   }
 }
 
+/* Input box */
 .input-box {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
   padding: 10px;
+  margin: 10px 0;
   border-radius: 8px;
   background-color: #111111;  /* Slightly lighter black for input box */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -89,16 +94,18 @@ input {
   width: 80%;
   padding: 12px 16px;
   border-radius: 25px;
-  border: 1px solid #555;  /* Darker border for input */
+  border: 1px solid #555;
   font-size: 1rem;
   outline: none;
-  background-color: #444;  /* Gray input background */
+  background: linear-gradient(145deg, #3b3b3b, #2b2b2b);  /* Subtle gradient */
   color: #EAEAEA;  /* Light text */
-  transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease;
+  /* box-shadow: inset 2px 2px 5px #1c1c1c, inset -2px -2px 5px #3a3a3a;  3D feel */
 }
 
 input:focus {
-  border: 1px solid #00E676;  /* Green border on focus */
+  border: 1px solid #4a4a4a;  /* Green border on focus */
+  box-shadow: 0 0 5px #949494;
 }
 
 button {
@@ -113,13 +120,14 @@ button {
 }
 
 button:hover {
-  background-color: #00796b;  /* Darker green on hover */
+  background-color: #96cec8;  /* Darker green on hover */
 }
 
 button:focus {
   outline: none;
 }
 
+/* Scrollbar styling */
 .chat-box::-webkit-scrollbar {
   width: 8px;
 }
@@ -130,5 +138,38 @@ button:focus {
 }
 
 .chat-box::-webkit-scrollbar-track {
-  background-color: #333;  /* Lighter dark background for scrollbar track */
+  background-color: #333;  /* Darker track */
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid #00E676;  /* Green border */
+  background-color: #00E676;  /* Green background */
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #63ffed;  /* Darker green on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Scrollbar styling */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #00E676;  /* Green scrollbar thumb */
+  border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background-color: #333;  /* Darker track */
 }

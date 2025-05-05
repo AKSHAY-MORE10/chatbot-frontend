@@ -10,7 +10,7 @@ function App() {
   // Function to send the message to the backend API
   const sendMessage = async () => {
     if (!message.trim()) return; // Do not send empty messages
-    
+
     const newHistory = [...history, { role: 'user', content: message }];
     setHistory(newHistory);
     setMessage('');
